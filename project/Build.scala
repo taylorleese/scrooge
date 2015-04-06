@@ -94,7 +94,10 @@ object Scrooge extends Build {
       "org.scalatest" %% "scalatest" % "2.2.2" % "test",
       "junit" % "junit" % "4.10" % "test" exclude("org.mockito", "mockito-all")
     ),
-    resolvers += "twitter-repo" at "http://maven.twttr.com",
+    resolvers ++= Seq(
+      "twitter-repo" at "http://maven.twttr.com", 
+      "Typesafe repository" at "http://repo.typesafe.com/typesafe/releases/"
+    ),
 
     scalacOptions ++= Seq("-encoding", "utf8"),
     scalacOptions += "-deprecation",
