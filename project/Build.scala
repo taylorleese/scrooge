@@ -71,8 +71,8 @@ object Scrooge extends Build {
   val sharedSettings = Seq(
     version := libVersion,
     organization := "com.twitter",
-    crossScalaVersions := Seq("2.10.4"),
-    scalaVersion := "2.10.4",
+    crossScalaVersions := Seq("2.10.5"),
+    scalaVersion := "2.10.5",
 
     resolvers ++= Seq(
       "sonatype-public" at "https://oss.sonatype.org/content/groups/public"
@@ -94,7 +94,10 @@ object Scrooge extends Build {
       "org.scalatest" %% "scalatest" % "2.2.2" % "test",
       "junit" % "junit" % "4.10" % "test" exclude("org.mockito", "mockito-all")
     ),
-    resolvers += "twitter-repo" at "http://maven.twttr.com",
+    resolvers ++= Seq(
+      "twitter-repo" at "http://maven.twttr.com", 
+      "Typesafe repository" at "http://repo.typesafe.com/typesafe/releases/"
+    ),
 
     scalacOptions ++= Seq("-encoding", "utf8"),
     scalacOptions += "-deprecation",
